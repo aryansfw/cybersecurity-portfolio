@@ -61,7 +61,9 @@ Connectors have 8 pins which can be connected with the UTP cable based on the et
 | 1000BASE-T | 4     | 8          |
 | 10GBASE-T  | 4     | 8          |
 
-## Which pins are used in 10BASE-T and 1000BASE-T?
+## 10BASE-T and 1000BASE-T Connections
+
+### Which pins are used in 10BASE-T and 1000BASE-T?
 
 | Device Type | Transmit (Tx) Pins | Receive (Rx) Pins |
 | ----------- | ------------------ | ----------------- |
@@ -70,7 +72,7 @@ Connectors have 8 pins which can be connected with the UTP cable based on the et
 | PC          | 1 and 2            | 3 and 6           |
 | Switch      | 3 and 6            | 1 and 2           |
 
-## Different transmit and receive pins example
+### Different transmit and receive pins example
 
 Uses a **straight-through cable**, meaning same connector ends.
 
@@ -86,7 +88,7 @@ Rx 6 --------------- 6 Tx
    8                 8
 ```
 
-## Same transmit and receive pins example
+### Same transmit and receive pins example
 
 Uses a **cross-over cable**, meaning different connector ends.
 
@@ -100,4 +102,39 @@ Rx 3 --/ \--\-/------- 3 Rx
 Rx 6 ------/   \------ 6 Rx
    7                   7
    8                   8
+```
+### Sounds annoying, how to automate?
+
+Modern devices have Auto-MDIX ports, which automatically detect and set Tx and Rx pin connections.
+
+Using same transmit and receive pins example after using Auto-MDIX
+
+```
+PC                     Switch (Auto-NDIX)
+Tx 1 --------------- 1 Rx => Tx
+Tx 2 --------------- 2 Rx => Tx
+Rx 3 --------------- 3 Tx => Rx
+   4                 4
+   5                 5
+Rx 6 --------------- 6 Tx => Rx
+   7                 7
+   8                 8
+```
+
+## 1000BASE-T and 10GBASE-T Connections
+
+### How do send data so fast?
+
+Each pair is **bi-directionnal**, meaning data can be transmitted and received on the same pair.
+
+```
+PC                Switch
+1 --------------- 1
+2 --------------- 2
+3 --------------- 3
+4 --------------- 4
+5 --------------- 5
+6 --------------- 6
+7 --------------- 7
+8 --------------- 8
 ```
