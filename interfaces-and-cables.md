@@ -44,7 +44,7 @@ Standards are defined in the IEEE 802.3 standard in 1983 (Institute of electrica
 
 ## What is a UTP Cable?
 
-UTP (Unshielded Twisted Pair) is a copper cable consisting of 4 twisted wire pairs.
+UTP (Unshielded Twisted Pair) is a copper cable consisting of 4 twisted wire pairs that uses electrical signal for data transfer.
 
 ## Why are the pairs twisted?
 
@@ -103,6 +103,7 @@ Rx 6 ------/   \------ 6 Rx
    7                   7
    8                   8
 ```
+
 ### Sounds annoying, how to automate?
 
 Modern devices have Auto-MDIX ports, which automatically detect and set Tx and Rx pin connections.
@@ -138,3 +139,51 @@ PC                Switch
 7 --------------- 7
 8 --------------- 8
 ```
+
+# Fiber Optic Cables
+
+## What are they?
+
+Cables that send and receive data using light.
+
+## How do they connect?
+
+Devices have dedicated ports for STP transceivers (Small Form-Factor Pluggable), which these cables can connect to.
+
+## How is data transmitted?
+
+They use a separate cable for transmit and receive
+
+```
+PC                Switch
+Tx --------------- Rx
+Rx --------------- Tx
+```
+
+## What is the structure?
+
+![fiber optic cable](./images/fiberoptic.png)
+
+1. Fiberglass core
+2. Light reflective casing
+3. Protective layer
+4. Outer jacket of cable
+
+## Types of fiber optic cables
+
+|               | Multimode                                        | Single-mode                                        |
+| ------------- | ------------------------------------------------ | -------------------------------------------------- |
+| Diagram       | ![multi mode fiber](./images/multimodefiber.png) | ![single mode fiber](./images/singlemodefiber.png) |
+| Core diameter | Larger                                           | Smaller                                            |
+| Mechanism     | Multiple angles light enter                      | Single angle light enters                          |
+| Cost          | Cheaper                                          | More expensive                                     |
+| Length        | Shorter                                          | Longer                                             |
+
+## Standards
+
+| Informal Name | IEEE Standard | Speed   | Cable Type               | Maximum Length        |
+| ------------- | ------------- | ------- | ------------------------ | --------------------- |
+| 1000BASE-LX   | 802.3z        | 1 Gbps  | Multimode or Single-Mode | 550 m (MM), 5 km (SM) |
+| 10GBASE-SR    | 802.3ae       | 10 Gbps | Multimode                | 400 m                 |
+| 10GBASE-LR    | 802.3ae       | 10 Gbps | Single-Mode              | 10 km                 |
+| 10GBASE-ER    | 802.3ae       | 10 Gbps | Single-Mode              | 30 km                 |
