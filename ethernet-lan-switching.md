@@ -49,3 +49,39 @@ A 6-byte globally unique physical address assigned to the device when it is made
 First 3 bytes: OUI (Organizationally Unique Identifier), it is assigned to the company making the device
 
 Last 3 bytes: Unique identifier of the device
+
+## Switch Mechanism
+
+### Unicast Frame
+
+A unicast frame is a frame with a single destined target.
+
+An unknown unicast frame is a frame whose destined target is not known by the switch.
+
+A known unicast frame is a frame whose destined target is known by the switch
+
+### How does a frame reach its target?
+
+- A switch holds a MAC address table
+
+  | MAC   | Interface |
+  | ----- | --------- |
+  | .0001 | F0/1      |
+
+- A switch learns MAC address dynamically through source MAC Address of a frame -> Dynamic Mac Address
+
+  If a MAC address does not exist in the address table, the device who sends a frame gets its source MAC address stored with the source interface from
+
+### What if the MAC address table does not contain the destined target (unknown unicast frame)?
+
+A FLOOD HAPPENS!
+
+Meaning the unknown unicast frame is sent through all interfaces except the source interface.
+
+The device that has the same destined MAC address processes the frame normally. If the device wants to send a reply, a frame with switched source and destination MAC addresses gets sent to the switch through the interface. Then, the switch can register its MAC address, associating it with the interface.
+
+The device with a different MAC address simply drops the frame.
+
+### How long are the dynamic addresses stored in the table
+
+If a dynamic MAC address is not used for 5 minutes, it is erased from the table.
