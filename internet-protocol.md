@@ -59,3 +59,15 @@ If the host portions are all 0. The network address cannot be assigned to a host
 ### How to identify broadcast address?
 
 If the host portions are all 1. The broadcast address cannot be assigned to a host
+
+### How to know maximum amount of hosts?
+
+through the network prefix --> /8 = 24 bits worth of hosts --> 2^24 = 16,777,216
+
+### How to identify first and last usable address
+
+Set last bit to 1
+
+10.0.0.0/8
+
+`00000000 00000000 00000000 > 00000000 00000000 00000001`
