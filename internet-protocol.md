@@ -64,6 +64,8 @@ If the host portions are all 1. The broadcast address cannot be assigned to a ho
 
 through the network prefix --> /8 = 24 bits worth of hosts --> 2^24 = 16,777,216
 
+Because network and broadcast address take up two ip addresses, maximum is 2^x - 2 so that would be 16,777,214
+
 ### How to identify first and last usable address
 
 Set last bit to 1
@@ -71,3 +73,29 @@ Set last bit to 1
 10.0.0.0/8
 
 `00000000 00000000 00000000 > 00000000 00000000 00000001`
+
+## IPv4 Addressing
+
+### How can we see the status?
+
+On a cisco IOS router, we can use command `show ip interface brief`
+
+- Method = Method of setting up the interface
+- Status = Layer 1 status (up/down)
+- Protocol = Layer 2 status (up/down)
+
+### How do we activate interface configuration mode?
+
+As Global Configuration Mode: `interface gigabitethernet 0/0`, `interface g0/0`
+
+### What can we do as interface configuration mode?
+
+- Set IP Address: `ip address <ip> <subnet mask>`
+- Enable interface: `no shutdown`, because shutdown command is ran default in a cisco router
+- Set description: `description`
+
+### How do we show information about interface?
+
+`show interfaces <interface>`
+
+with description: `show interfaces description`
